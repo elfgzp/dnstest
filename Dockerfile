@@ -5,7 +5,7 @@ RUN cd /opt
 COPY go.mod ./
 RUN go mod download
 COPY . .
-RUN go build  -o dnstest cmd/main.go
+RUN CGO_ENABLED=0 go build  -o dnstest cmd/main.go
 
 #FROM alpine:latest
 FROM debian:buster-slim
