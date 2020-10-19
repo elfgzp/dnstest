@@ -7,7 +7,8 @@ RUN go mod download
 COPY . .
 RUN go build  -o dnstest cmd/main.go
 
-FROM alpine:latest
+#FROM alpine:latest
+FROM debian:buster-slim
 LABEL maintainer="Elf Gzp <gzp@741424975@gmail.com> (https://elfgzp.cn)"
 COPY --from=builder /opt/dnstest ./
 RUN chmod +x /dnstest
